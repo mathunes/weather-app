@@ -12,6 +12,13 @@ class WeatherNow extends Component {
         },
     }
 
+    componentDidUpdate() {
+        if (this.props.nowWeather.error) {
+            this.getLocation();
+        }
+        
+    }
+
     searchWeather() {
         this.props.searchWeatherNow(false, this.state.userPosition.lat, this.state.userPosition.long);
     }
