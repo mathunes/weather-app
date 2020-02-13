@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import * as actionSearch from '../../actions';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
-export default class SearchInput extends Component {
+class SearchInput extends Component {
     constructor() {
         super();
 
@@ -23,6 +26,10 @@ export default class SearchInput extends Component {
         console.log(this.state.search)
     }
 
+    componentDidMount() {
+        console.log(this.props)
+    }
+
     render() {
         return (
             <div>
@@ -33,3 +40,12 @@ export default class SearchInput extends Component {
         )
     }
 }
+
+const mapStateToProps = state => ({
+    search: state.search
+})
+
+const mapDispatchToProps = dispatch => 
+    bindActionCreators(actionSearch, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchInput);
