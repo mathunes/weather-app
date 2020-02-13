@@ -23,8 +23,9 @@ class SearchInput extends Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        
+
         this.props.searchWeatherFiveDays(this.state.search);
+        this.props.searchWeatherNow(this.state.search);
     }
 
     render() {
