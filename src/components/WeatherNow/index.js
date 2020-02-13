@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import * as actionSearch from '../../actions';
 import { connect } from 'react-redux';
-import api from '../../services/api'
 
 class WeatherNow extends Component {
     state = {
@@ -21,6 +20,7 @@ class WeatherNow extends Component {
 
     searchWeather() {
         this.props.searchWeatherNow(false, this.state.userPosition.lat, this.state.userPosition.long);
+        this.props.searchWeatherFiveDays(false, this.state.userPosition.lat, this.state.userPosition.long);
     }
 
     getLocation() {
