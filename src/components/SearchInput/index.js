@@ -23,11 +23,8 @@ class SearchInput extends Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        console.log(this.state.search)
-    }
-
-    componentDidMount() {
-        console.log(this.props)
+        
+        this.props.searchCity(this.state.search);
     }
 
     render() {

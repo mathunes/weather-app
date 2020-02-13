@@ -28,7 +28,7 @@ const searchCitySuccess = weatherData => ({
 });
 
 const searchCityFailure = error => ({
-    type: 'SEACH_CITY_FAILURE',
+    type: 'SEARCH_CITY_FAILURE',
     payload: {
         error
     }
