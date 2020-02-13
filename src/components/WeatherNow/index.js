@@ -58,11 +58,11 @@ class WeatherNow extends Component {
                             )
                         })}
                         <span>Now</span><br />
-                        <span>{this.props.nowWeather.data.main.temp}°C</span><br />
-                        <span>Max: {this.props.nowWeather.data.main.temp_max}°C</span><br />
-                        <span>Min: {this.props.nowWeather.data.main.temp_min}°C</span><br />
-                        <span>Feels like: {this.props.nowWeather.data.main.feels_like}°C</span><br />
-                        <span>Humidity: {this.props.nowWeather.data.main.humidity}°C</span><br />
+                        <span>{(this.props.nowWeather.data.main.temp - 273.15).toFixed(2)}°C</span><br />
+                        <span>Max: {(this.props.nowWeather.data.main.temp_max - 273.15).toFixed(2)}°C</span><br />
+                        <span>Min: {(this.props.nowWeather.data.main.temp_min - 273.15).toFixed(2)}°C</span><br />
+                        <span>Feels like: {(this.props.nowWeather.data.main.feels_like - 273.15).toFixed(2)}°C</span><br />
+                        <span>Humidity: {(this.props.nowWeather.data.main.humidity - 273.15).toFixed(2)}°C</span><br />
                     </div>
             }
         }
