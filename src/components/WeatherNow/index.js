@@ -10,8 +10,6 @@ class WeatherNow extends Component {
             lat: -15.7801,
             long: -47.9292
         },
-
-        data: {}
     }
 
     componentDidUpdate() {
@@ -47,9 +45,31 @@ class WeatherNow extends Component {
     }
 
     render() {
+        let container;
+        
+        if (this.props.nowWeather.found) {
+            if (!this.props.nowWeather.loading) {
+                container =     
+                    <div>
+                        <h2>{this.props.nowWeather.data.name}</h2>
+                        {this.props.nowWeather.data.weather.map((item, i) => {
+                            return (
+                                <span key={i}>{item.main}<br /></span>
+                            )
+                        })}
+                        <span>Now</span><br />
+                        <span>{this.props.nowWeather.data.main.temp}°C</span><br />
+                        <span>Max: {this.props.nowWeather.data.main.temp_max}°C</span><br />
+                        <span>Min: {this.props.nowWeather.data.main.temp_min}°C</span><br />
+                        <span>Feels like: {this.props.nowWeather.data.main.feels_like}°C</span><br />
+                        <span>Humidity: {this.props.nowWeather.data.main.humidity}°C</span><br />
+                    </div>
+            }
+        }
+
         return (
             <div>
-                weather now
+                {container}
             </div>
         )
     }

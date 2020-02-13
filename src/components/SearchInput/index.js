@@ -39,7 +39,7 @@ class SearchInput extends Component {
 }
 
 const mapStateToProps = state => ({
-    search: state.search
+    fiveDaysWeather: state.fiveDaysWeather
 })
 
 const mapDispatchToProps = dispatch => 
