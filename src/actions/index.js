@@ -1,26 +1,16 @@
 import api from "../services/api";
 
-export function searchCity(cityInfo, lat = -15.7801, long = -47.9292, now = false) {
+export function searchWeatherNow(cityInfo, lat, lon) {
     let search = '';
 
     if (cityInfo) {
-        if (now) {
-            search = `weather?q=${cityInfo}`;
-        } else {
-            search = `forecast?q=${cityInfo}`;
-        }
-        
+        search = `weather?q=${cityInfo}`;
     } else {
-        if (now) {
-            search = `weather?lat=${lat}&lon=${long}`;
-        } else {
-            search = `forecast?lat=${lat}&lon=${long}`;
-        }
-        
+        search = `weather?lat=${lat}&lon=${lon}`;
     }
 
     return dispatch => {
-        dispatch(searchCityStarted());
+        dispatch(searchWeatherNowStarted());
 
         api.get(search, {
             params: {
@@ -28,25 +18,70 @@ export function searchCity(cityInfo, lat = -15.7801, long = -47.9292, now = fals
             }
         })
         .then(response => {
-            dispatch(searchCitySuccess(response.data));
+            dispatch(searchWeatherNowSuccess(response.data));
         })
         .catch(error => {
-            dispatch(searchCityFailure(error.message));
+            dispatch(searchWeatherNowFailure(error.message));
         })
     }
 }
 
-const searchCityStarted = () => ({
-    type: 'SEARCH_CITY_STARTED'
+
+export function searchWeatherFiveDays(cityInfo, lat, lon) {
+    let search = '';
+
+    if (cityInfo) {
+        search = `forecast?q=${cityInfo}`;
+    } else {
+        search = `forecast?lat=${lat}&lon=${lon}`;
+    }
+
+    return dispatch => {
+        dispatch(searchWeatherFiveDaysStarted());
+
+        api.get(search, {
+            params: {
+                appid: 'f0907836e5052169cf34edbd7b01ceca'
+            }
+        })
+        .then(response => {
+            dispatch(searchWeatherFiveDaysSuccess(response.data));
+        })
+        .catch(error => {
+            dispatch(searchWeatherFiveDaysFailure(error.message));
+        })
+    }
+}
+
+const searchWeatherNowStarted = () => ({
+    type: 'SEARCH_WEATHER_NOW_STARTED'
 });
 
-const searchCitySuccess = weatherData => ({
-    type: 'SEARCH_CITY_SUCCESS',
+const searchWeatherNowSuccess = weatherData => ({
+    type: 'SEARCH_WEATHER_NOW_SUCCESS',
     weatherData
 });
 
-const searchCityFailure = error => ({
-    type: 'SEARCH_CITY_FAILURE',
+const searchWeatherNowFailure = error => ({
+    type: 'SEARCH_WEATHER_NOW_FAILURE',
+    payload: {
+        error
+    }
+})
+
+
+
+const searchWeatherFiveDaysStarted = () => ({
+    type: 'SEARCH_WEATHER_FIVE_DAYS_STARTED'
+});
+
+const searchWeatherFiveDaysSuccess = weatherData => ({
+    type: 'SEARCH_WEATHER_FIVE_DAYS_SUCCESS',
+    weatherData
+});
+
+const searchWeatherFiveDaysFailure = error => ({
+    type: 'SEARCH_WEATHER_FIVE_DAYS_FAILURE',
     payload: {
         error
     }

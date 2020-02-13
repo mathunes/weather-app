@@ -5,21 +5,21 @@ const initialState = {
     found: false
 }
 
-export default function searchReducer(state = initialState, action) {
+export default function searchFiveDaysReducer(state = initialState, action) {
     switch (action.type) {
-        case 'SEARCH_CITY_STARTED':
+        case 'SEARCH_WEATHER_FIVE_DAYS_STARTED':
             return {
                 loading: true,
                 found: true
             };
-        case 'SEARCH_CITY_SUCCESS':
+        case 'SEARCH_WEATHER_FIVE_DAYS_SUCCESS':
             return {
                 loading: false,
                 data: action.weatherData,
                 error: null,
                 found: true
             };
-        case 'SEARCH_CITY_FAILURE':
+        case 'SEARCH_WEATHER_FIVE_DAYS_FAILURE':
             return {
                 loading: false,
                 data: {},

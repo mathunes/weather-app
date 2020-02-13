@@ -16,13 +16,11 @@ class WeatherNow extends Component {
 
     componentDidUpdate() {
         console.log(this.props)
-        if (!this.props.search.found) {
-            //exibindo clima local
-        }
+        
     }
 
     searchWeather() {
-        this.props.searchCity(false, this.state.userPosition.lat, this.state.userPosition.long, true)
+        this.props.searchWeatherNow(false, this.state.userPosition.lat, this.state.userPosition.long);
     }
 
     getLocation() {
@@ -58,7 +56,7 @@ class WeatherNow extends Component {
 }
 
 const mapStateToProps = state => ({
-    search: state.search
+    nowWeather: state.nowWeather
 })
 
 const mapDispatchToProps = dispatch =>

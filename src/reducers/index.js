@@ -1,7 +1,9 @@
 import { combineReducers } from 'redux';
 
-import searchReducer from './searchReducer';
+import searchFiveDaysReducer from './searchFiveDaysReducer';
+import searchNowReducer from './searchNowReducer';
 
 export default combineReducers({
-    search: searchReducer
+    fiveDaysWeather: searchFiveDaysReducer,
+    nowWeather: searchNowReducer,
 });
