@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import * as actionSearch from '../../actions'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { ContainerWeatherFiveDays } from './styles';
+import { ContainerWeatherFiveDays, NavbarDays, ContainerForecast } from './styles';
 
 class WeatherFiveDays extends Component {
 
@@ -19,25 +19,25 @@ class WeatherFiveDays extends Component {
         if (this.props.fiveDaysWeather.found) {
             if (!this.props.fiveDaysWeather.loading) {
                 container =
-                <div>
+                <ContainerForecast>
                     {this.props.fiveDaysWeather.data.list.map((item, i) => {
                         return (
                             (item.dt_txt.substr(8, 2) === this.state.weatherDayView) ? 
                                 <div key={i}>
-                                    <span>{item.dt_txt.substr(11, 5)}</span><br />
-                                    <span>{(item.main.temp - 273.15).toFixed(2)}°C</span>    
+                                    <span>{item.dt_txt.substr(11, 5)}</span>
+                                    <span>{Math.round(item.main.temp - 273.15)}°C</span>    
                                 </div>
                             : ''
                         )
                     })}
                     
-                </div>
+                </ContainerForecast>
             }
         }
         
         return (
             <ContainerWeatherFiveDays>
-                <nav>
+                <NavbarDays>
                     <ul>
                         <li 
                             onClick={() => this.setState(
@@ -69,7 +69,7 @@ class WeatherFiveDays extends Component {
                             {`${this.state.date + 4}/${(this.state.month < 10) ? '0' : ''}${this.state.month}`}
                         </li>
                     </ul>
-                </nav>
+                </NavbarDays>
                 {container}
             </ContainerWeatherFiveDays>
         )
