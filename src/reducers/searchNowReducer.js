@@ -2,7 +2,8 @@ const initialState = {
     loading: false,
     data: {},
     error: null,
-    found: false
+    found: false,
+    bgWeather: 'Sunny'
 }
 
 export default function searchNowReducer(state = initialState, action) {
@@ -17,7 +18,18 @@ export default function searchNowReducer(state = initialState, action) {
                 loading: false,
                 data: action.weatherData,
                 error: null,
-                found: true
+                found: true,
+                bgWeather: action.weatherData.weather.map((item => {
+                    if (['Smoke', 'Dust', 'Ash'].includes(item.main)) {
+                        return 'Dust';
+                    } else if (['Snow', 'Mist', 'Haze', 'Fog'].includes(item.main)) {
+                        return 'Cold';
+                    } else if (['Thunderstorm', 'Drizzle', 'Rain', 'Tornado', 'Squall'].includes(item.main)) {
+                        return 'Dark';
+                    } else {
+                        return 'Sunny';
+                    }
+                }))
             };
         case 'SEARCH_WEATHER_NOW_FAILURE':
             return {
