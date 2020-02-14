@@ -3,7 +3,7 @@ const initialState = {
     data: {},
     error: null,
     found: false,
-    bgWeather: 'Sunny'
+    bgWeather: 'sunny'
 }
 
 export default function searchNowReducer(state = initialState, action) {
@@ -21,13 +21,13 @@ export default function searchNowReducer(state = initialState, action) {
                 found: true,
                 bgWeather: action.weatherData.weather.map((item => {
                     if (['Smoke', 'Dust', 'Ash'].includes(item.main)) {
-                        return 'Dust';
+                        return 'dust';
                     } else if (['Snow', 'Mist', 'Haze', 'Fog'].includes(item.main)) {
-                        return 'Cold';
+                        return 'cold';
                     } else if (['Thunderstorm', 'Drizzle', 'Rain', 'Tornado', 'Squall'].includes(item.main)) {
-                        return 'Dark';
+                        return 'dark';
                     } else {
-                        return 'Sunny';
+                        return 'sunny';
                     }
                 }))
             };
