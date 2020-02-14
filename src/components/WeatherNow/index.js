@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import * as actionSearch from '../../actions';
 import { connect } from 'react-redux';
-import { WeatherNowContainer, HeaderWeather, MainWeather, Now, Temp   } from './styles';
+import { WeatherNowContainer, HeaderWeather, MainWeather, Now, Temp, LoadingContainer } from './styles';
+import LoadingGif from '../../assets/images/loading.gif';
 
 class WeatherNow extends Component {
     state = {
@@ -80,6 +81,11 @@ class WeatherNow extends Component {
                             </div>
                         </MainWeather>
                     </WeatherNowContainer>
+            } else {
+                container =
+                <LoadingContainer>
+                    <img src={LoadingGif} alt="Carregando" />
+                </LoadingContainer>
             }
         }
 

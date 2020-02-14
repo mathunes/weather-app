@@ -59,3 +59,19 @@ export const Now = styled.span`
     font-size: 14px;
     margin-bottom: 10px;
 `
+
+export const LoadingContainer = styled.div`
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.25);
+    width: 400px;
+    height: 160px;
+    max-width: 400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+
+    img {
+        width: 50px;
+    }
+`
