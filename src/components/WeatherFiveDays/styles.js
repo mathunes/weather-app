@@ -47,10 +47,19 @@ export const ContainerForecast = styled.div`
     div {
         display: flex;
         flex-direction: column;
-        margin: 0 5px;
+        justify-content: center;
+        margin: 0 7px;
 
         span {
-            font-size: 14px;
+            font-size: 13px;
+
+            &:last-child {
+                font-weight: 600;
+            }
+        }
+
+        img {
+            width: 30px;
         }
     }
 `
