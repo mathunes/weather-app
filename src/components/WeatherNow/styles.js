@@ -7,6 +7,7 @@ export const WeatherNowContainer = styled.div`
     max-width: 400px;
     /* height: 50px; */
     padding: 0 10px;
+    margin: 0 auto;
 `
 
 export const HeaderWeather = styled.div`
