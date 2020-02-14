@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const ContainerWeatherFiveDays = styled.div`
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.25);
     width: 400px;
+    height: 166px;
     max-width: 400px;
     margin: 0 auto;
     border-radius: 20px;
@@ -61,5 +62,16 @@ export const ContainerForecast = styled.div`
         img {
             width: 30px;
         }
+    }
+`
+
+export const LoadingContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+
+    img {
+        width: 50px;
     }
 `

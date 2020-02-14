@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import * as actionSearch from '../../actions'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { ContainerWeatherFiveDays, NavbarDays, ContainerForecast } from './styles';
+import { ContainerWeatherFiveDays, NavbarDays, ContainerForecast, LoadingContainer } from './styles';
+import LoadingGif from '../../assets/images/loading.gif';
 
 class WeatherFiveDays extends Component {
 
@@ -39,6 +40,11 @@ class WeatherFiveDays extends Component {
                     })}
                     
                 </ContainerForecast>
+            } else {
+                container =
+                <LoadingContainer>
+                    <img src={LoadingGif} alt="Carregando" />
+                </LoadingContainer>
             }
         }
         
