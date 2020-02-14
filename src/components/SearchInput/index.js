@@ -3,6 +3,7 @@ import * as actionSearch from '../../actions';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import locationIcon from '../../assets/images/location.png'
+import { SearchInputContainer, Form } from './styles';
 
 class SearchInput extends Component {
     constructor() {
@@ -31,14 +32,14 @@ class SearchInput extends Component {
 
     render() {
         return (
-            <div>
-                <form onSubmit={this.handleSubmit}>
+            <SearchInputContainer>
+                <Form onSubmit={this.handleSubmit}>
                     <button type="submit">
                         <img src={locationIcon} alt="Pesquisar" />
                     </button>
                     <input type="text" placeholder="Weather in..." onChange={this.handleChangeInput}/>
-                </form>
-            </div>
+                </Form>
+            </SearchInputContainer>
         )
     }
 }
