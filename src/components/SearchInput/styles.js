@@ -32,5 +32,7 @@ export const Form = styled.form`
         border: 0;
         padding: 5px;
         font-size: 16px;
+        width: 100%;
+        text-align: left;
     }
 `
