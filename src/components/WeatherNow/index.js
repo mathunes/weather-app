@@ -6,8 +6,8 @@ import { connect } from 'react-redux';
 class WeatherNow extends Component {
     state = {
         userPosition: {
-            lat: -15.7801,
-            long: -47.9292
+            lat: -22.7084,
+            long: -42.60972
         },
     }
 
