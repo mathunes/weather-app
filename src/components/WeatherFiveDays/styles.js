@@ -3,11 +3,11 @@ import styled from 'styled-components';
 export const ContainerWeatherFiveDays = styled.div`
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.25);
     width: 400px;
-    height: 166px;
+    height: 182px;
     max-width: 400px;
     margin: 0 auto;
     border-radius: 20px;
-    padding: 20px;
+    padding: 20px 20px 30px;
 `
 
 export const NavbarDays = styled.nav`
@@ -28,6 +28,7 @@ export const NavbarDays = styled.nav`
     ul {
         display: flex;
         justify-content: space-between;
+        align-items: center;
 
         li {
             font-weight: 600;
@@ -74,4 +75,8 @@ export const LoadingContainer = styled.div`
     img {
         width: 50px;
     }
+`
+
+export const LiButton = styled.li`
+
 `

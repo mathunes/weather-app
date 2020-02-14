@@ -3,6 +3,7 @@ import * as actionSearch from '../../actions'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { ContainerWeatherFiveDays, NavbarDays, ContainerForecast, LoadingContainer } from './styles';
+import './style.css';
 import LoadingGif from '../../assets/images/loading.gif';
 
 class WeatherFiveDays extends Component {
@@ -13,33 +14,51 @@ class WeatherFiveDays extends Component {
         weatherDayView: (new Date().getDate()).toString()
     }
 
+    containerForecast() {
+        return (
+            <ContainerForecast>
+                {this.props.fiveDaysWeather.data.list.map((item, i) => {
+                    return (
+                        (item.dt_txt.substr(8, 2) === this.state.weatherDayView) ? 
+                            <div key={i}>
+                                <span>{item.dt_txt.substr(11, 5)}</span>
+
+                                {item.weather.map((itemInfo, i) => {
+                                    return (
+                                        <img key={i} src={`http://openweathermap.org/img/wn/${itemInfo.icon}.png`} alt="Icone do clima" />
+                                    )
+                                }) }
+
+                                <span>{Math.round(item.main.temp - 273.15)}°C</span>    
+                            </div>
+                        : ''
+                    )
+                })}    
+            </ContainerForecast>
+        )
+    }
+
+    buttonActive(e) {
+        const ul = e.target.parentNode;
+
+        if (ul.tagName === 'UL') {
+            for (let i = 0; i < 5; i++) {
+                ul.children[i].classList.remove('buttonActive');
+            }
+    
+            e.target.classList.add('buttonActive');        
+        }
+        
+    }
+
     render() {
 
         let container;
 
         if (this.props.fiveDaysWeather.found) {
             if (!this.props.fiveDaysWeather.loading) {
-                container =
-                <ContainerForecast>
-                    {this.props.fiveDaysWeather.data.list.map((item, i) => {
-                        return (
-                            (item.dt_txt.substr(8, 2) === this.state.weatherDayView) ? 
-                                <div key={i}>
-                                    <span>{item.dt_txt.substr(11, 5)}</span>
-
-                                    {item.weather.map((itemInfo, i) => {
-                                        return (
-                                            <img key={i} src={`http://openweathermap.org/img/wn/${itemInfo.icon}.png`} alt="Icone do clima" />
-                                        )
-                                    }) }
-
-                                    <span>{Math.round(item.main.temp - 273.15)}°C</span>    
-                                </div>
-                            : ''
-                        )
-                    })}
-                    
-                </ContainerForecast>
+                container = this.containerForecast()
+                
             } else {
                 container =
                 <LoadingContainer>
@@ -51,8 +70,9 @@ class WeatherFiveDays extends Component {
         return (
             <ContainerWeatherFiveDays>
                 <NavbarDays>
-                    <ul>
+                    <ul onClick={(e) => this.buttonActive(e)}>
                         <li 
+                            className="buttonActive"
                             onClick={() => this.setState(
                                 {weatherDayView: (new Date().getDate()).toString()}
                             )}>
