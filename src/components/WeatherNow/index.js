@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import * as actionSearch from '../../actions';
 import { connect } from 'react-redux';
-import { WeatherNowContainer, HeaderWeather, MainWeather } from './styles';
+import { WeatherNowContainer, HeaderWeather, MainWeather, Now, Temp   } from './styles';
 
 class WeatherNow extends Component {
     state = {
@@ -58,26 +58,25 @@ class WeatherNow extends Component {
                             <h2>{this.props.nowWeather.data.name}</h2>
                             {this.props.nowWeather.data.weather.map((item, i) => {
                                 return (
-                                    <React.Fragment>
+                                    <React.Fragment key={i}>
                                         <img src={`http://openweathermap.org/img/wn/${item.icon}.png`} alt="Icone do clima" />
-                                        <span key={i}>{item.description}<br /></span>
+                                        <span>{item.description}</span>
                                     </React.Fragment>
                                 )
                             })}
                         </HeaderWeather>
-                        <span>Agora</span><br />
+                        <Now>Agora</Now>
                         <MainWeather>
                             <div>
-                                <span>{(this.props.nowWeather.data.main.temp - 273.15).toFixed(2)}°C</span><br />
-                                <div>
-                                    <span>Máx: {(this.props.nowWeather.data.main.temp_max - 273.15).toFixed(2)}°C</span><br />
-                                    <span>Mín: {(this.props.nowWeather.data.main.temp_min - 273.15).toFixed(2)}°C</span><br />
-                                </div>
+                                <Temp>{Math.round(this.props.nowWeather.data.main.temp - 273.15)}°C</Temp>
                             </div>
-                            
                             <div>
-                                <span>Sensação térmica: {(this.props.nowWeather.data.main.feels_like - 273.15).toFixed(2)}°C</span><br />
-                                <span>Humidade: {(this.props.nowWeather.data.main.humidity - 273.15).toFixed(2)}°C</span><br />
+                                <span>{`Máx: ${Math.round(this.props.nowWeather.data.main.temp_max - 273.15)}°C`}</span>
+                                <span>{`Mín: ${Math.round(this.props.nowWeather.data.main.temp_min - 273.15)}°C`}</span>
+                            </div>
+                            <div>
+                                <span>{`Sens. térmica: ${Math.round(this.props.nowWeather.data.main.feels_like - 273.15)}°C`}</span>
+                                <span>{`Humidade: ${Math.round(this.props.nowWeather.data.main.humidity - 273.15)}°C`}</span>
                             </div>
                         </MainWeather>
                     </WeatherNowContainer>
