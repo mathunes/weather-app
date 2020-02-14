@@ -21,10 +21,18 @@ class WeatherFiveDays extends Component {
                 container =
                 <ContainerForecast>
                     {this.props.fiveDaysWeather.data.list.map((item, i) => {
+                        console.log(item)
                         return (
                             (item.dt_txt.substr(8, 2) === this.state.weatherDayView) ? 
                                 <div key={i}>
                                     <span>{item.dt_txt.substr(11, 5)}</span>
+
+                                    {item.weather.map((itemInfo, i) => {
+                                        return (
+                                            <img key={i} src={`http://openweathermap.org/img/wn/${itemInfo.icon}.png`} alt="Icone do clima" />
+                                        )
+                                    }) }
+                                    
                                     <span>{Math.round(item.main.temp - 273.15)}°C</span>    
                                 </div>
                             : ''
