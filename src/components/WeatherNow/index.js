@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import * as actionSearch from '../../actions';
 import { connect } from 'react-redux';
+import { WeatherNowContainer, HeaderWeather, MainWeather } from './styles';
 
 class WeatherNow extends Component {
     state = {
@@ -52,27 +53,38 @@ class WeatherNow extends Component {
         if (this.props.nowWeather.found) {
             if (!this.props.nowWeather.loading) {
                 container =     
-                    <div>
-                        <h2>{this.props.nowWeather.data.name}</h2>
-                        {this.props.nowWeather.data.weather.map((item, i) => {
-                            return (
-                                <span key={i}>{item.main}<br /></span>
-                            )
-                        })}
+                    <WeatherNowContainer>
+                        <HeaderWeather>
+                            <h2>{this.props.nowWeather.data.name}</h2>
+                            {this.props.nowWeather.data.weather.map((item, i) => {
+                                return (
+                                    <span key={i}>{item.main}<br /></span>
+                                )
+                            })}
+                        </HeaderWeather>
                         <span>Now</span><br />
-                        <span>{(this.props.nowWeather.data.main.temp - 273.15).toFixed(2)}°C</span><br />
-                        <span>Max: {(this.props.nowWeather.data.main.temp_max - 273.15).toFixed(2)}°C</span><br />
-                        <span>Min: {(this.props.nowWeather.data.main.temp_min - 273.15).toFixed(2)}°C</span><br />
-                        <span>Feels like: {(this.props.nowWeather.data.main.feels_like - 273.15).toFixed(2)}°C</span><br />
-                        <span>Humidity: {(this.props.nowWeather.data.main.humidity - 273.15).toFixed(2)}°C</span><br />
-                    </div>
+                        <MainWeather>
+                            <div>
+                                <span>{(this.props.nowWeather.data.main.temp - 273.15).toFixed(2)}°C</span><br />
+                                <div>
+                                    <span>Max: {(this.props.nowWeather.data.main.temp_max - 273.15).toFixed(2)}°C</span><br />
+                                    <span>Min: {(this.props.nowWeather.data.main.temp_min - 273.15).toFixed(2)}°C</span><br />
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <span>Feels like: {(this.props.nowWeather.data.main.feels_like - 273.15).toFixed(2)}°C</span><br />
+                                <span>Humidity: {(this.props.nowWeather.data.main.humidity - 273.15).toFixed(2)}°C</span><br />
+                            </div>
+                        </MainWeather>
+                    </WeatherNowContainer>
             }
         }
 
         return (
-            <div>
+            <React.Fragment>
                 {container}
-            </div>
+            </React.Fragment>
         )
     }
 }
