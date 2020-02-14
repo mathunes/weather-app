@@ -14,7 +14,8 @@ export function searchWeatherNow(cityInfo, lat, lon) {
 
         api.get(search, {
             params: {
-                appid: 'f0907836e5052169cf34edbd7b01ceca'
+                appid: 'f0907836e5052169cf34edbd7b01ceca',
+                lang: 'pt_br'
             }
         })
         .then(response => {

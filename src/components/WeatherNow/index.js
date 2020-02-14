@@ -58,23 +58,23 @@ class WeatherNow extends Component {
                             <h2>{this.props.nowWeather.data.name}</h2>
                             {this.props.nowWeather.data.weather.map((item, i) => {
                                 return (
-                                    <span key={i}>{item.main}<br /></span>
+                                    <span key={i}>{item.description}<br /></span>
                                 )
                             })}
                         </HeaderWeather>
-                        <span>Now</span><br />
+                        <span>Agora</span><br />
                         <MainWeather>
                             <div>
                                 <span>{(this.props.nowWeather.data.main.temp - 273.15).toFixed(2)}°C</span><br />
                                 <div>
-                                    <span>Max: {(this.props.nowWeather.data.main.temp_max - 273.15).toFixed(2)}°C</span><br />
-                                    <span>Min: {(this.props.nowWeather.data.main.temp_min - 273.15).toFixed(2)}°C</span><br />
+                                    <span>Máx: {(this.props.nowWeather.data.main.temp_max - 273.15).toFixed(2)}°C</span><br />
+                                    <span>Mín: {(this.props.nowWeather.data.main.temp_min - 273.15).toFixed(2)}°C</span><br />
                                 </div>
                             </div>
                             
                             <div>
-                                <span>Feels like: {(this.props.nowWeather.data.main.feels_like - 273.15).toFixed(2)}°C</span><br />
-                                <span>Humidity: {(this.props.nowWeather.data.main.humidity - 273.15).toFixed(2)}°C</span><br />
+                                <span>Sensação térmica: {(this.props.nowWeather.data.main.feels_like - 273.15).toFixed(2)}°C</span><br />
+                                <span>Humidade: {(this.props.nowWeather.data.main.humidity - 273.15).toFixed(2)}°C</span><br />
                             </div>
                         </MainWeather>
                     </WeatherNowContainer>

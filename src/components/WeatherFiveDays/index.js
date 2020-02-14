@@ -43,12 +43,12 @@ class WeatherFiveDays extends Component {
                                 onClick={() => this.setState(
                                     {weatherDayView: (new Date().getDate()).toString()}
                                 )}>
-                                Today
+                                Hoje
                             </th>
                             <th onClick={() => this.setState(
                                     {weatherDayView: (new Date().getDate() + 1).toString()}
                                 )}>
-                                Tomorrow
+                                Amanhã
                             </th>
                             <th 
                                 onClick={() => this.setState(

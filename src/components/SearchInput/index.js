@@ -37,7 +37,7 @@ class SearchInput extends Component {
                     <button type="submit">
                         <img src={locationIcon} alt="Pesquisar" />
                     </button>
-                    <input type="text" placeholder="Weather in..." onChange={this.handleChangeInput}/>
+                    <input type="text" placeholder="Clima em..." onChange={this.handleChangeInput}/>
                 </Form>
             </SearchInputContainer>
         )
