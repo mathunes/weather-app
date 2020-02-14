@@ -58,7 +58,10 @@ class WeatherNow extends Component {
                             <h2>{this.props.nowWeather.data.name}</h2>
                             {this.props.nowWeather.data.weather.map((item, i) => {
                                 return (
-                                    <span key={i}>{item.description}<br /></span>
+                                    <React.Fragment>
+                                        <img src={`http://openweathermap.org/img/wn/${item.icon}.png`} alt="Icone do clima" />
+                                        <span key={i}>{item.description}<br /></span>
+                                    </React.Fragment>
                                 )
                             })}
                         </HeaderWeather>
