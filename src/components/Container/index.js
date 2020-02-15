@@ -37,7 +37,6 @@ class Container extends Component {
                     return dark1;
                 } else {
                     if (document.body.clientWidth < 414) {
-                        console.log(document.body.clientWidth);
                         return sunny2;
                     }
                     return sunny1;
