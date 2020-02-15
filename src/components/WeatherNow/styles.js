@@ -26,11 +26,29 @@ export const HeaderWeather = styled.div`
 
     h2 {
         font-size: 22px;
+
+        @media(max-width: 600px) {
+            font-size: 18px;
+        }
     }
 
-    span::first-letter {
-        text-transform: uppercase;
+    img {
+        @media(max-width: 600px) {
+            width: 35px;
+        }
     }
+
+    span {
+        &::first-letter {
+            text-transform: uppercase;
+        }
+
+        @media(max-width: 600px) {
+            font-size: 14px;
+        }
+    }
+
+    
 `
 
 export const MainWeather = styled.div`
@@ -48,6 +66,10 @@ export const MainWeather = styled.div`
 
             span {
                 margin: 2px 0;
+
+                @media(max-width: 600px) {
+                    font-size: 13px;
+                }
             }
         }
     }
@@ -57,25 +79,38 @@ export const MainWeather = styled.div`
 export const Temp = styled.span`
     font-size: 38px;
     font-weight: 600;
+
+    @media(max-width: 600px) {
+        font-size: 32px;
+    }
 `
 
 export const Now = styled.span`
     font-weight: 600;
     font-size: 14px;
     margin-bottom: 10px;
+
+    @media(max-width: 600px) {
+        font-size: 13px;
+    }
 `
 
 export const LoadingContainer = styled.div`
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.25);
-    width: 400px;
     height: 160px;
-    max-width: 400px;
     margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 20px;
     background-color: rgba(0, 0, 0, 0.05);
+
+    width: 400px;
+    max-width: 400px;
+
+    @media(max-width: 600px) {
+        width: 90%;
+    }
 
     img {
         width: 50px;

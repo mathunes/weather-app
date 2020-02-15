@@ -22,6 +22,7 @@ export const Form = styled.form`
 
     @media(max-width: 600px) {
         width: 90%;
+        height: 40px;
     }
 
     button {
@@ -31,6 +32,10 @@ export const Form = styled.form`
 
         img {
             width: 25px;
+
+            @media(max-width: 600px) {
+                width: 20px;
+            }
         }
 
         &:hover {
@@ -46,5 +51,9 @@ export const Form = styled.form`
         font-size: 16px;
         width: 100%;
         text-align: left;
+
+        @media(max-width: 600px) {
+            font-size: 14px;
+        }
     }
 `

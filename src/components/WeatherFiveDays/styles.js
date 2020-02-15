@@ -42,6 +42,11 @@ export const NavbarDays = styled.nav`
             &:hover {
                 cursor: pointer;
             }
+
+            @media(max-width: 600px) {
+                margin: 0 7px;
+                font-size: 14px;
+            }
         }
     }   
 `
@@ -55,7 +60,12 @@ export const ContainerForecast = styled.div`
         display: flex;
         flex-direction: column;
         justify-content: center;
+        align-items: center;
         margin: 0 7px;
+
+        @media(max-width: 600px) {
+            margin: 0 3px;
+        }
 
         span {
             font-size: 13px;
@@ -63,12 +73,20 @@ export const ContainerForecast = styled.div`
             &:last-child {
                 font-weight: 600;
             }
+
+            @media(max-width: 600px) {
+                font-size: 12px;
+            }
         }
 
         img {
             width: 30px;
+
+            @media(max-width: 600px) {
+                width: 20px;
+            }
         }
-    }
+    }   
 `
 
 export const LoadingContainer = styled.div`
