@@ -2,13 +2,17 @@ import styled from 'styled-components';
 
 export const ContainerWeatherFiveDays = styled.div`
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.25);
-    width: 400px;
     height: 182px;
-    max-width: 400px;
     margin: 0 auto;
     border-radius: 20px;
     padding: 20px 20px 30px;
     background-color: rgba(0, 0, 0, 0.05);
+    width: 400px;
+    max-width: 400px;
+
+    @media(max-width: 600px) {
+        width: 90%;
+    }
 `
 
 export const NavbarDays = styled.nav`

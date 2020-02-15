@@ -6,11 +6,15 @@ export const WeatherNowContainer = styled.div`
     align-items: center;
     border-radius: 20px;
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.25);
-    width: 400px;
-    max-width: 400px;
     padding: 10px 20px 20px;
     margin: 0 auto;
     background-color: rgba(0, 0, 0, 0.05);
+    width: 400px;
+    max-width: 400px;
+
+    @media(max-width: 600px) {
+        width: 90%;
+    }
 `
 
 export const HeaderWeather = styled.div`

@@ -4,6 +4,9 @@ export const SearchInputContainer = styled.div`
     margin: 0 auto;
     display: flex;
     justify-content: center;
+    @media(max-width: 600px) {
+        width: 100%;
+    }
 `
 
 export const Form = styled.form`
@@ -11,11 +14,15 @@ export const Form = styled.form`
     align-items: center;
     border-radius: 30px;
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.25);
-    width: 400px;
-    max-width: 400px;
     height: 50px;
     padding: 0 10px;
     background-color: rgba(0, 0, 0, 0.05);
+    width: 400px;
+    max-width: 400px;
+
+    @media(max-width: 600px) {
+        width: 90%;
+    }
 
     button {
         background-color: transparent;
