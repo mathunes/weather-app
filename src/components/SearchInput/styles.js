@@ -22,6 +22,10 @@ export const Form = styled.form`
         border: 0;
         padding: 5px;
 
+        img {
+            width: 25px;
+        }
+
         &:hover {
             cursor: pointer;
         }
