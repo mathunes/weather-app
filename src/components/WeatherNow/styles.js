@@ -10,6 +10,7 @@ export const WeatherNowContainer = styled.div`
     max-width: 400px;
     padding: 10px 20px 20px;
     margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0.05);
 `
 
 export const HeaderWeather = styled.div`
@@ -70,6 +71,7 @@ export const LoadingContainer = styled.div`
     justify-content: center;
     align-items: center;
     border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.05);
 
     img {
         width: 50px;

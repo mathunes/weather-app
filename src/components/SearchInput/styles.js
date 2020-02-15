@@ -15,7 +15,7 @@ export const Form = styled.form`
     max-width: 400px;
     height: 50px;
     padding: 0 10px;
-    background-color: rgba(255, 255, 255, 0.25);
+    background-color: rgba(0, 0, 0, 0.05);
 
     button {
         background-color: transparent;

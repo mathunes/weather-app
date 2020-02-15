@@ -8,6 +8,7 @@ export const ContainerWeatherFiveDays = styled.div`
     margin: 0 auto;
     border-radius: 20px;
     padding: 20px 20px 30px;
+    background-color: rgba(0, 0, 0, 0.05);
 `
 
 export const NavbarDays = styled.nav`
@@ -75,8 +76,4 @@ export const LoadingContainer = styled.div`
     img {
         width: 50px;
     }
-`
-
-export const LiButton = styled.li`
-
 `
