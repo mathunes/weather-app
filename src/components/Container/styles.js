@@ -7,7 +7,7 @@ export const ContainerComponents = styled.div`
     justify-content: space-evenly;
     height: 100vh;
     padding: 100px 0;
-    background-image: url(
-        ${props => props.weather}
-    );
+    background: url( ${props => props.weather} ) no-repeat center center fixed; 
+    background-size: cover;
+
 `

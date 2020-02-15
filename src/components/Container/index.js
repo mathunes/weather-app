@@ -17,20 +17,29 @@ import sunny2 from '../../assets/images/bg/sunny-2.png';
 
 class Container extends Component {
     
-    componentDidUpdate() {
-        console.log(this.props)
-    }
-
     bgWeather() {
         if (this.props.nowWeather.found) {
             if (!this.props.nowWeather.loading) {
                 if (this.props.nowWeather.bgWeather.includes('dust')) {
+                    if (document.body.clientWidth < 414) {
+                        return dust2;
+                    }
                     return dust1;
                 } else if (this.props.nowWeather.bgWeather.includes('cold')) {
+                    if (document.body.clientWidth < 414) {
+                        return cold2;
+                    }
                     return cold1;
                 } else if (this.props.nowWeather.bgWeather.includes('dark')) {
+                    if (document.body.clientWidth < 414) {
+                        return dark2;
+                    }
                     return dark1;
                 } else {
+                    if (document.body.clientWidth < 414) {
+                        console.log(document.body.clientWidth);
+                        return sunny2;
+                    }
                     return sunny1;
                 }
         
@@ -41,7 +50,6 @@ class Container extends Component {
 
     render() {
         return (
-            // <ContainerComponents weather={this.props.nowWeather.bgWeather}>
             <ContainerComponents weather={this.bgWeather()}>
                 <SearchInput />
                 <WeatherNow />
