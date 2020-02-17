@@ -5,7 +5,7 @@ export const ContainerWeatherFiveDays = styled.div`
     height: 182px;
     margin: 20px auto;
     border-radius: 20px;
-    padding: 20px 20px 30px;
+    padding: 20px 20px;
     background-color: rgba(0, 0, 0, 0.05);
     width: 400px;
     max-width: 400px;
