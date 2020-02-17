@@ -5,12 +5,8 @@ export const ContainerComponents = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    height: 100vh;
-    padding: 100px 0;
+    height: 100vh;    
     background: url( ${props => props.weather} ) no-repeat center center fixed; 
     background-size: cover;
 
-    @media(max-width: 600px) {
-        padding: 50px 0;
-    }
 `
