@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import SearchInput from '../SearchInput';
 import WeatherNow from '../WeatherNow';
 import WeatherFiveDays from '../WeatherFiveDays';
+import Loading from '../Loading';
 import { ContainerComponents } from './styles';
 import { bindActionCreators } from 'redux';
 import * as actionSearch from '../../actions';
@@ -14,9 +15,14 @@ import dark1 from '../../assets/images/bg/dark-1.png';
 import dark2 from '../../assets/images/bg/dark-2.png';
 import sunny1 from '../../assets/images/bg/sunny-1.png';
 import sunny2 from '../../assets/images/bg/sunny-2.png';
+import Toast from '../Toast';
 
 class Container extends Component {
     
+    state = {
+        error: false
+    }
+
     bgWeather() {
         if (this.props.nowWeather.found) {
             if (!this.props.nowWeather.loading) {
@@ -48,8 +54,18 @@ class Container extends Component {
     }
 
     render() {
+        let container;
+
+        (this.props.nowWeather.loading) ? 
+            container = <Loading />
+            : container = ''
+        
         return (
             <ContainerComponents weather={this.bgWeather()}>
+                {container}
+                {/* <Toast 
+                    show = {(this.props.nowWeather.errorMessage) ? true : false}
+                /> */}
                 <SearchInput />
                 <WeatherNow />
                 <WeatherFiveDays />

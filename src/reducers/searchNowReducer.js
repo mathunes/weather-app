@@ -3,8 +3,10 @@ const initialState = {
     data: {},
     error: null,
     found: false,
-    bgWeather: 'sunny'
+    bgWeather: 'sunny',
 }
+
+let error = false;
 
 export default function searchNowReducer(state = initialState, action) {
     switch (action.type) {
@@ -29,14 +31,17 @@ export default function searchNowReducer(state = initialState, action) {
                     } else {
                         return 'sunny';
                     }
-                }))
+                })),
+                errorMessage: error
             };
         case 'SEARCH_WEATHER_NOW_FAILURE':
+            error = true;
             return {
                 loading: false,
                 data: {},
                 error: action.payload.error,
-                found: false
+                found: false,
+                errorMessage: error
             };
         default:
             return state;
