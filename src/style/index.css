@@ -9,3 +9,7 @@
     text-align: center;
 }
 
+input::placeholder {
+    color: #a8a2a2;
+}
+
