@@ -9,8 +9,4 @@ export const ContainerComponents = styled.div`
     background: url( ${props => props.weather} ) no-repeat center center fixed; 
     background-size: cover;
 
-    * {
-        margin: 20px 0;
-    }
-
 `
