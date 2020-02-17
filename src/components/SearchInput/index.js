@@ -26,6 +26,8 @@ class SearchInput extends Component {
     handleSubmit(e) {
         e.preventDefault();
 
+        document.getElementById('input').blur();
+
         this.props.searchWeatherFiveDays((this.state.search).trim());
         this.props.searchWeatherNow((this.state.search).trim());
     }
@@ -37,7 +39,7 @@ class SearchInput extends Component {
                     <button type="submit">
                         <img src={locationIcon} alt="Pesquisar" />
                     </button>
-                    <input type="text" placeholder="Clima em..." onChange={this.handleChangeInput}/>
+                    <input type="text" id="input" placeholder="Clima em..." onChange={this.handleChangeInput}/>
                 </Form>
             </SearchInputContainer>
         )
