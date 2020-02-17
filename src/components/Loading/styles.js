@@ -15,6 +15,10 @@ export const ContainerLoading = styled.div`
         animation-duration: .5s;
         animation-iteration-count: infinite;
 
+        @media (max-width: 600px) {
+            width: 60px;
+        }
+
         @keyframes flutter {
             0% {margin-top: 0px}
             50% {margin-top: 50px}
